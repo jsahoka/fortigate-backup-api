@@ -8,11 +8,11 @@ from datetime import datetime
 req = requests.session()
 
 # Uncomment these two lines below to disable SSL certificate warnings
-# requests.packages.urllib3.disable_warnings()
-# req.verify = False
+requests.packages.urllib3.disable_warnings()
+req.verify = False
 
 # Global variables
-DATE = datetime.now().strftime('%m-%d-%Y')      # Today's date in the format mm-dd-yyyy
+DATE = datetime.now().strftime('%Y-%m-%d')      # Today's date in the format yyyy-mm-dd
 CURRENT_DIR = os.path.dirname(os.path.realpath(__file__))   # Path to the directory where this script is located
 BKP_FOLDER = os.path.join(CURRENT_DIR, 'backups', DATE)     # Path to the backups folder
 LOGS_FOLDER = os.path.join(CURRENT_DIR, 'logs')     # Path to the logs folder
@@ -96,8 +96,8 @@ def main():
 
     log.close()
     print('Backup finished!')
-    input('Press ENTER to exit...')
-    sys.exit()
+#    input('Press ENTER to exit...')
+#    sys.exit()
 
 def read_fortigates():
 
